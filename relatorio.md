@@ -14,6 +14,7 @@ Para cenários I/O-bound (/checkout/simple), a aplicação suportou até 300 usu
 - **Configuração**: 1 VU por 30 segundos.
 - **Resultado**: 100% de sucesso (37016 requisições bem-sucedidas).
 - **Razão**: Endpoint acessível e respondendo corretamente.
+- **Prints**: ![Teste de Smoke](atividade/tests/smoke.PNG)
 
 ### Teste de Carga
 
@@ -21,6 +22,7 @@ Para cenários I/O-bound (/checkout/simple), a aplicação suportou até 300 usu
 - **Configuração**: Ramp up de 0-50 VUs em 1m, hold 50 por 2m, ramp down em 30s.
 - **Resultado**: 100% de sucesso (39850 requisições bem-sucedidas), p95 = 296.81ms.
 - **Razão**: Aplicação suportou a carga dentro dos limites de SLA.
+- **Prints**: ![Teste de Carga](atividade/tests/load.PNG)
 
 ### Teste de Estresse
 
@@ -28,6 +30,7 @@ Para cenários I/O-bound (/checkout/simple), a aplicação suportou até 300 usu
 - **Configuração**: Ramp up de 0-200 em 2m, 200-500 em 2m, 500-1000 em 2m.
 - **Resultado**: 98.94% de falhas (198841 falhas de 200965 requisições).
 - **Razão**: Servidor recusou conexões devido à sobrecarga no processamento CPU-bound.
+- **Prints**: ![Teste de Estresse](atividade/tests/stress.PNG)
 
 ### Teste de Spike
 
@@ -35,13 +38,7 @@ Para cenários I/O-bound (/checkout/simple), a aplicação suportou até 300 usu
 - **Configuração**: 10 VUs por 30s, ramp 10-300 em 10s, hold 300 por 1m, ramp down em 0s.
 - **Resultado**: 100% de sucesso (94763 requisições bem-sucedidas), p95 = 298.39ms.
 - **Razão**: Aplicação lidou bem com o pico de carga no endpoint I/O-bound.
-
-## Prints dos Testes
-
-- **Teste de Smoke**: prints/smoke/
-- **Teste de Carga**: prints/load/
-- **Teste de Estresse**: prints/stress/
-- **Teste de Spike**: prints/spike/
+- **Prints**: ![Teste de Spike](atividade/tests/spike.PNG)
 
 ## Análise de Estresse
 
